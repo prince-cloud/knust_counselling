@@ -1,0 +1,30 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}Home page{% endblock title %}
+
+{% block content %}
+<div class="contianer pt-5">
+    <h1 class="display-1 text-center">
+        My Requests
+    </h1>
+
+    <div class="container">
+        <div class="row">
+            {% for request in my_requests%}
+            <div class="col-md-4">
+                <div class="card shadow-sm" style="border-left: 4px solid rgb(0, 0, 0);">
+                    <div class="m-3">
+                        Request Pending
+                    </div>
+                    <div class="card-body">
+                        <span> {{ request.message }} </span>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+</div>
+{% endblock content %}

@@ -1,0 +1,36 @@
+{% extends '_base.html' %}
+{% load crispy_forms_tags %}
+{% block carousel %}
+{% endblock %}
+{% block content %}
+
+
+<div class="container">
+    <br>
+    <div class="col-12 px-1">
+
+        <div class="row d-flex align-items-center py-5 justify-content-center h-min-100vhs">
+            <div class="col-md-6">
+
+                <!-- Form -->
+                <form class=" shadow p-5 text-center white-bg " method="POST" style="color: #757575;" enctype="multipart/form-data">
+                    <h3 class="text-center text-bolder">Make Request</h3>
+                    <small class="text-center"> fields marked (*) are mandatory </small>
+                    <br>
+                    <br>
+                    
+                    {% csrf_token %}
+                    {{ form | crispy }}
+
+                    <!-- Sign in button -->
+                    <button type="button submit" class="btn peach-gradient btn-success btn-block" value="Log In" class=""> 
+                     Send Request</button>
+                    </p>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}Home page{% endblock title %}
+{% block carousel %} {% endblock %}
+{% block content %}
+<div class="contianer pt-5">
+    <h1 class="display-1 text-center">
+        {{request.user.counselor.college}}
+    </h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <a href="{% url 'counselling:counselling_requests' %}" class="p-2">
+                    <div class="card shadow-sm" style="border-left: 4px solid green;">
+                        <div class="m-3">
+                            <i class="fas fa-bell fa-lg text-success"></i>
+                            {% if counselling_requests %}
+                        <span class="badge rounded-pill badge-notification bg-danger">+{{ counselling_requests.count }}</span>
+                        {% endif %}
+                        </div>
+                        <div class="card-body text-center">
+                            <h2 class="card-title text-success">Requests</h2>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="{% url 'counselling:my_schedules' %}" class="p-2">
+                    <div class="card shadow-sm" style="border-left: 4px solid rgb(13, 0, 128);">
+                        <div class="m-3">
+                            <i class="fas fa-calendar-alt fa-lg"></i>
+                        </div>
+                        <div class="card-body text-center">
+                            <h2 class="card-title text-primary">Schedules</h2>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <a href="">
+
+    </a>
+</div>
+{% endblock content %}

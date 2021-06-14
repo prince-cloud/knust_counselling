@@ -1,0 +1,214 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}Home page{% endblock title %}
+
+{% block content %}
+<!-- Carousel wrapper -->
+<div
+  id="carouselBasicExample"
+  class="carousel slide carousel-fade carousel_phone"
+  data-mdb-ride="carousel"
+>
+  <!-- Indicators -->
+  <div class="carousel-indicators">
+    <button
+      type="button"
+      data-mdb-target="#carouselBasicExample"
+      data-mdb-slide-to="0"
+      class="active"
+      aria-current="true"
+      aria-label="Slide 1"
+    ></button>
+    <button
+      type="button"
+      data-mdb-target="#carouselBasicExample"
+      data-mdb-slide-to="1"
+      aria-label="Slide 2"
+    ></button>
+    <button
+      type="button"
+      data-mdb-target="#carouselBasicExample"
+      data-mdb-slide-to="2"
+      aria-label="Slide 3"
+    ></button>
+  </div>
+
+  <!-- Inner -->
+  <div class="carousel-inner">
+    <!-- Single item -->
+    <div class="carousel-item active">
+      <img
+        src="{% static 'images/caro3.jpg' %}"
+        class="d-block w-100"
+        alt="..."
+      />
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+      </div>
+    </div>
+
+    <!-- Single item -->
+    <div class="carousel-item">
+      <img
+        src="{% static 'images/caro2.jpg' %}"
+        class="d-block w-100"
+        alt="..."
+      />
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Second slide label</h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+    </div>
+
+    <!-- Single item -->
+    <div class="carousel-item">
+      <img
+        src="{% static 'images/caro1.jpg' %}"
+        class="d-block w-100"
+        alt="..."
+      />
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+      </div>
+    </div>
+  </div>
+  <!-- Inner -->
+
+  <!-- Controls -->
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-mdb-target="#carouselBasicExample"
+    data-mdb-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-mdb-target="#carouselBasicExample"
+    data-mdb-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<div class="container">
+  <div class="row">
+
+    {% for college in colleges %}
+    <div class="col-md-4 p-2">
+      <a href="{% url 'account_login' %}">
+        <div class="card">
+          <img src="{{ college.logo.url }}" class="card-img-top" alt="nt found" />
+          <div class="card-body">
+            <h5 class="card-title text-center">{{ college.name }}</h5>
+            <!-- <p class="card-text">
+              Some quick example text to build on the card title and make up the bulk of the
+              card's content.
+            </p> -->
+          </div>
+        </div>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+</div>
+
+
+<div class="container-fluid section_2 text-center">
+  <div class="sec_content align-items-center justify-content-center d-flex flex-column">
+    <h1>SPEAK WITH A COUNSELOR</h1>
+    <br>
+    <a href="#" class="btn btn-success btn-lg">Book An Appointment</a>
+  </div>
+
+</div>
+
+
+<div class="container-fluid white-bg">
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="sc_services_item_featured post_featured p-2 white-bg b-radius text-center">
+          <div class="post_thumb"
+            data-image="{% static 'images/icon-1-1.jpg' %}"
+            data-title="Psychotherapy">
+            <a class="hover_icon hover_icon_link"><img class="wp-post-image" width="138" height="138" alt="Psychotherapy"
+                src="{% static 'images/icon-1-1.jpg' %}"></a>
+          </div>
+          <div class="sc_services_item_content">
+            <h4 class="sc_services_item_title"><a
+                href="#">Psychotherapy</a></h4>
+            <div class="sc_services_item_description">
+              <p>There are over a thousand different named psychotherapies, some being minor variations while others are
+                based on very different conceptions of...</p><a
+                href="#"
+                class="sc_services_item_readmore">Learn
+                More<span class="icon-double-right"></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="sc_services_item_featured post_featured p-2 white-bg b-radius text-center">
+          <div class="post_thumb"
+            data-image="{% static 'images/icon-2-1.jpg' %}"
+            data-title="Psychotherapy">
+            <a class="hover_icon hover_icon_link"><img class="wp-post-image" width="138" height="138" alt="Psychotherapy"
+                src="{% static 'images/icon-2-1.jpg' %}"></a>
+          </div>
+          <div class="sc_services_item_content">
+            <h4 class="sc_services_item_title"><a
+                href="">Grief & Loss</a></h4>
+            <div class="sc_services_item_description">
+              <p>There are over a thousand different named psychotherapies, some being minor variations while others are
+                based on very different conceptions of...</p><a
+                href=""
+                class="sc_services_item_readmore">Learn
+                More<span class="icon-double-right"></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="sc_services_item_featured post_featured p-2 white-bg b-radius text-center">
+          <div class="post_thumb"
+            data-image="{% static 'images/icon-2-1.jpg' %}"
+            data-title="Psychotherapy">
+            <a class="hover_icon hover_icon_link"><img class="wp-post-image" width="138" height="138" alt="Psychotherapy"
+                src="{% static 'images/icon-4-1.jpg' %}"></a>
+          </div>
+          <div class="sc_services_item_content">
+            <h4 class="sc_services_item_title"><a
+                href="">Speaking</a></h4>
+            <div class="sc_services_item_description">
+              <p>There are over a thousand different named psychotherapies, some being minor variations while others are
+                based on very different conceptions of...</p><a
+                href="{% static 'images/icon-4-1.jpg' %}"
+                class="sc_services_item_readmore">Learn
+                More<span class="icon-double-right"></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid sec_3">
+  <div class="container">
+
+  </div>
+</div>
+
+
+<br>
+{% endblock content %}
