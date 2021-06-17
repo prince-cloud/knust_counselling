@@ -51,9 +51,9 @@
 
              </div>
              <div class="timeline-footer">
-                <a href="" class="btn btn-sm btn-success"> <i class="fas fa-sync"></i> Reschedule</a>
+                <a href="{% url 'counselling:reschudle_appointment' schedule.id %}" class="btn btn-sm btn-success"> <i class="fas fa-sync"></i> Reschedule</a>
                 <a href="" class="btn btn-sm btn-primary"> <i class="fas fa-eye"></i> Profile</a>
-                <a href="" class="btn btn-sm btn-danger"> <i class="fas fa-trash-alt"></i> Delete</a>
+                <a href="{% url 'counselling:delete_appointment' schedule.id %}" class="btn btn-sm btn-danger"> <i class="fas fa-trash-alt"></i> Delete</a>
              </div>
           </div>
           <!-- end timeline-body -->

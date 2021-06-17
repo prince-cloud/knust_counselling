@@ -153,6 +153,7 @@ INTERNAL_IPS = ['127.0.0.1']
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/topics/auth/customizing/#substituting-a-custom-user-model
 AUTH_USER_MODEL = 'accounts.CustomUser'
+ACCOUNT_FORMS = {'signup': 'accounts.forms.RegisterForm'}
 
 # DJANGO-ALLAUTH CONFIGS
 # ------------------------------------------------------------------------------

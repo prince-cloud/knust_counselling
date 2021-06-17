@@ -42,6 +42,7 @@ class Schedule(models.Model):
     request = models.ForeignKey(Request, on_delete=models.CASCADE)
     counselling_mode = models.CharField(choices=COUNSELLING_MODE, max_length=100)
     message = models.TextField(null=True)
+    deleted = models.BooleanField(default=False)
     date = models.DateTimeField()
     date_created = models.DateTimeField(auto_now_add=True)
 

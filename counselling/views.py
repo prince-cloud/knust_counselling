@@ -71,7 +71,7 @@ def my_schedules(request):
         return render(request, 'pages/student_schedules.html', {"schedules":schedules})
         
     else:
-        schedules = Schedule.objects.filter(counselor=request.user, date__gte=timezone.now())
+        schedules = Schedule.objects.filter(counselor=request.user, date__gte=timezone.now(), deleted=False)
         return render(request, 'pages/my_schedules.html', {"schedules":schedules})
 
 @login_required
@@ -102,3 +102,32 @@ def my_requests(request):
     pending_requests = Request.objects.filter(user=request.user, scheduled=False)
     my_requests = Request.objects.filter(user=request.user)
     return render(request, "pages/my_requests.html", {"pending_requests":pending_requests, "my_requests":my_requests})
+
+
+@login_required
+def delete_appointment(request, id):
+    appointment = get_object_or_404(Schedule, pk=id)
+    appointment.deleted = True
+    messages.success(
+                request, f"Appointment succesffully deleted"
+            )
+    return redirect('/')
+
+@login_required
+def reschudle_appointment(request, id):
+    appointment = get_object_or_404(Schedule, id=id)
+    if request.method =='POST':
+        form = ScheduleForm(data=request.POST, files=request.FILES, instance=appointment)
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request, "Appointment reschudelued successfully."
+            )
+            return redirect('/')
+        else:
+            messages.warning(
+                request, "Error. please check the form and try again."
+            )
+    else:
+        form = ScheduleForm(instance=appointment)
+    return render(request, "pages/schedule.html", {"form": form})

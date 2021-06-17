@@ -10,10 +10,19 @@ YEAR_CHOICE = [
     ("5", "5"),
     ("6", "6"),
 ]
+GENDER_CHOICE =[
+    ("Male", "Male"),
+    ("Female", "Female"),
+]
 
 class CustomUser(AbstractUser):
+    phone_number = models.CharField(max_length=100)
+    gender = models.CharField(choices=GENDER_CHOICE, max_length=10)
+    profile_picture = models.ImageField(upload_to="profile_pictures/")
+
     is_student = models.BooleanField(default=False)
     is_counselor = models.BooleanField(default=False)
+    
 
     def __str__(self):
         return self.get_full_name()
@@ -63,6 +72,7 @@ class Hall(models.Model):
 class Counsellor(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name="counselor")
     college = models.ForeignKey(College, related_name="counsellers", on_delete=models.SET_NULL, null=True)
+    bio = models.TextField()
 
     def __str__(self):
 
