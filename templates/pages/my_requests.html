@@ -11,14 +11,34 @@
 
     <div class="container">
         <div class="row">
-            {% for request in my_requests%}
+            {% for request in my_requests %}
             <div class="col-md-4">
                 <div class="card shadow-sm" style="border-left: 4px solid rgb(0, 0, 0);">
-                    <div class="m-3">
-                        Request Pending
-                    </div>
-                    <div class="card-body">
-                        <span> {{ request.message }} </span>
+                    <div class="timeline-body ml-3">
+                         <div class="card-body">
+                             <span> {{ request.message }} </span>
+                         </div>
+     
+                         <div class="timeline-content">
+                             <span class="pull-right text-muted"> <strong>Type: </strong> {{ request.counselling_type }}</span>
+                             <span class="pull-right text-muted ml-3"> <strong>Mode: </strong> {{ request.counselling_mode }}</span>
+             
+                             <div class="note mt-2">
+                                 <strong>Note </strong>
+                                 <span class="pull-right text-muted ml-3"> 
+                                      {{ schedule.message }}
+                                 </span>
+                             </div>
+             
+                          </div>
+     
+                          <div class="timeline-footer mb-2">
+                            {% if request.scheduled %} 
+                            <button class="btn btn-disabled btn-primary btn-md" disabled>Scheduled</button>
+                            {% else %} 
+                            <button class="btn btn-disabled btn-danger btn-md" disabled>Pending</button>
+                            {% endif %}
+                          </div>
                     </div>
                 </div>
             </div>

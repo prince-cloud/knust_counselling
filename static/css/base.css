@@ -235,7 +235,6 @@ html {
 
 .sec_3{
   background-color: rgb(16, 95, 27);
-  height: 400px;
 }
 
 .myoverlay {
@@ -494,4 +493,8 @@ html {
 
 .text-danger, .text-red {
   color: #ff5b57!important;
+}
+
+.text-purple, .fa-user-graduate{
+  color: rgb(114, 28, 103);
 }

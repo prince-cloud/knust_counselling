@@ -11,9 +11,11 @@ COUNSELLING_MODE = [
 
 class Counselling(models.Model):
     name = models.CharField(max_length=100)
-    
+    date_created = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+
     class Meta:
-        ordering = ("name",)
+        ordering = ("date_created",)
+
     def __str__(self):
         return self.name
 
@@ -48,3 +50,6 @@ class Schedule(models.Model):
 
     class Meta:
         ordering = ('date',)
+
+    def __str__(self) -> str:
+        return " ".join([self.request.user.first_name, "'s request"])

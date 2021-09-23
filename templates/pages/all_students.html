@@ -1,0 +1,84 @@
+{% extends '_base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} {{ College }} | Requests{% endblock %}
+{% block carousel %}
+{% endblock %}
+{% block content %}
+<div class="container-fluid pt-5">
+
+    <div class="row">
+        <div class="text-center">
+            <h1> All Students </h1>       
+        </div>
+
+        <div class="container">
+            <div class="row align-items-center justify-content-center d-flex text-center">
+                <div class="col-md-2"></div>
+                <div class="col-md-8 mb-3">
+                  <form class="filter-search-form-2 form-md row w-100 align-items-center text-center">
+            
+                    <div class="row">
+                        <div class="col-md-4 col-7">
+                            <input id="input" class="form-control" name="search" type="text" placeholder="search here">
+                        </div>
+
+                        Filter By:
+
+                        <div class="col-md-3 col-3">
+                            <select  class="form-control" name="filter_type">
+                                <option value="" selected disabled hidden selected>Search by</option>
+                                <option name="" value="name" selected>Name</option>
+                                <option name="" value="student_id">Student ID</option>
+                                <option name="" value="index_number">Index Number</option>
+                            </select>
+                        </div>
+                    
+                        <div class="col-md-3 col-2">
+                            <span class="waves-input-wrapper waves-effect waves-light">
+                                <input type="submit" value="Search" class="btn btn-primary">
+                            </span>
+                        </div>
+
+                    </div>
+              
+                  </form>
+                </div>
+                <div class="col-md-2"></div>
+              </div>
+        </div>
+    </div>
+
+  <div class="row">
+    <table class="table align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Programme</th>
+            <th scope="col">Year</th>
+            <th scope="col">Student ID</th>
+            <th scope="col">Index #</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for student in students %}
+          <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td class="text-uppercase">{{ student.user.last_name }} {{ student.user.first_name }}</td>
+            <td>{{ student.user.student.programme }}</td>
+            <td>{{ student.user.student.year }}</td>
+            <td>{{ student.user.student.student_id }}</td>
+            <td>{{ student.user.student.index_number }}</td>
+            
+          </tr>
+          {% endfor %}
+    
+    
+        </tbody>
+      </table>
+  </div>
+
+
+</div>
+{% endblock content %}

@@ -10,6 +10,7 @@ YEAR_CHOICE = [
     ("5", "5"),
     ("6", "6"),
 ]
+
 GENDER_CHOICE =[
     ("Male", "Male"),
     ("Female", "Female"),
@@ -72,8 +73,8 @@ class Hall(models.Model):
 class Counsellor(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name="counselor")
     college = models.ForeignKey(College, related_name="counsellers", on_delete=models.SET_NULL, null=True)
+    office_number = models.CharField(max_length=5)
     bio = models.TextField()
-
     def __str__(self):
 
         return " ".join([self.user.first_name, self.user.last_name])
@@ -81,8 +82,8 @@ class Counsellor(models.Model):
 
 class Student(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name="student")
-    student_id = models.CharField(max_length=8, )
-    index_number = models.CharField(max_length=7)
+    student_id = models.CharField(max_length=8, unique=True )
+    index_number = models.CharField(max_length=7, unique=True)
     programme = models.ForeignKey(Programme, on_delete=models.CASCADE, related_name="students")
     year = models.CharField(choices=YEAR_CHOICE, max_length=5)
     college = models.ForeignKey(College, blank=True, on_delete=models.CASCADE, related_name="students")

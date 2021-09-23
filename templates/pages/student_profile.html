@@ -1,0 +1,87 @@
+{% extends '_base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <div class="div">
+                <img src="{{ user.profile_picture.url }}" alt="" style="width: 100%;">
+
+            </div>
+            <div class="bg-white shadow-sm text-dark p-3 card">
+                <br>
+                <div class="container">
+                    <div class="row mb-4">
+                        <div class="col-8 col-md-6 card shadow-none">
+                            Student ID
+                            <span style="background-color: aliceblue;" class="p-2 text-uppercase">
+                                {{ user.student.student_id }}
+                            </span>
+                        </div>
+                        <div class="col-8 col-md-6 card shadow-none">
+                            Index Number
+                            <span style="background-color: aliceblue;" class="p-2 text-uppercase">
+                                {{ user.student.index_number }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="bg-white shadow-sm text-dark p-3 card">
+                <br>
+                <div class="container">
+                    <div class="row mb-4">
+                        <div class="col-8 col-md-6 card shadow-none">
+                            First Name
+                            <span style="background-color: aliceblue;" class="p-2 text-uppercase">
+                                {{ user.first_name }}
+                            </span>
+                        </div>
+                        <div class="col-8 col-md-6 card shadow-none">
+                            Last Name
+                            <span style="background-color: aliceblue;" class="p-2 text-uppercase">
+                                {{ user.last_name }}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-8 col-md-6 card shadow-none">
+                            Programme
+                            <span style="background-color: aliceblue;" class="p-2 text-uppercase">
+                                {{ user.student.programme }}
+                            </span>
+                        </div>
+                        <div class="col-8 col-md-6 card shadow-none">
+                            Year
+                            <span style="background-color: aliceblue;" class="p-2 text-uppercase">
+                                {{ user.student.year }}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-8 col-md-6 card shadow-none">
+                            College
+                            <span style="background-color: aliceblue;" class="p-2 text-uppercase">
+                                {{ user.student.college }}
+                            </span>
+                        </div>
+                        <div class="col-8 col-md-6 card shadow-none">
+                           Hall of Affiliation
+                            <span style="background-color: aliceblue;" class="p-2 text-uppercase">
+                                {{ user.student.hall_of_affiliation }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

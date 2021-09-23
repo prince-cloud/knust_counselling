@@ -1,0 +1,87 @@
+{% extends '_base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <div class="div">
+                <img src="{{ user.profile_picture.url }}" alt="" style="width: 100%;">
+
+            </div>
+            <div class="bg-white shadow-sm text-dark p-3 card">
+                <br>
+                <div class="container">
+                    <div class="row mb-4">
+                        <div class="col-8 col-md-6 card shadow-none">
+                            Office #
+                            <span style="background-color: aliceblue;" class="p-2 text-uppercase">
+                                {{ user.counselor.office_number }}
+                            </span>
+                        </div>
+                        
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col-md-12 card shadow-none">
+                            Bio
+                            <span class="pt-2">
+                                {{ user.counselor.bio }}
+                            </span>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="bg-white shadow-sm text-dark p-3 card">
+                <br>
+                <div class="container">
+                    <div class="row mb-4">
+                        <div class="col-8 col-md-6 card shadow-none">
+                            First Name
+                            <span style="background-color: aliceblue;" class="p-2 text-uppercase">
+                                {{ user.first_name }}
+                            </span>
+                        </div>
+                        <div class="col-8 col-md-6 card shadow-none">
+                            Last Name
+                            <span style="background-color: aliceblue;" class="p-2 text-uppercase">
+                                {{ user.last_name }}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-8 col-md-6 card shadow-none">
+                            Email
+                            <span style="background-color: aliceblue;" class="p-2 text-uppercase">
+                                {{ user.email }}
+                            </span>
+                        </div>
+                        <div class="col-8 col-md-6 card shadow-none">
+                            Phone
+                            <span style="background-color: aliceblue;" class="p-2 text-uppercase">
+                                {{ user.phone_number }}
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col-8 col-md-6 card shadow-none">
+                            College
+                            <span style="background-color: aliceblue;" class="p-2 text-uppercase">
+                                {{ user.counselor.college }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

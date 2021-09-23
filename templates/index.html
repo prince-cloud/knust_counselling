@@ -1,4 +1,6 @@
 {% extends '_base.html' %}
+{% load crispy_forms_tags %}
+
 {% load static %}
 
 {% block title %}Home page{% endblock title %}
@@ -100,7 +102,14 @@
 
 <div class="container">
   <div class="row">
+    <div class="col-12">
+      <h1 class="text-center display-2 m-2">
+        Colleges
+      </h1>
+    </div>
+  </div>
 
+  <div class="row">
     {% for college in colleges %}
     <div class="col-md-4 p-2">
       <a href="{% url 'account_login' %}">
@@ -116,6 +125,7 @@
         </div>
       </a>
     </div>
+    
     {% endfor %}
   </div>
 </div>
@@ -126,7 +136,7 @@
   <div class="sec_content align-items-center justify-content-center d-flex flex-column">
     <h1>SPEAK WITH A COUNSELOR</h1>
     <br>
-    <a href="#" class="btn btn-success btn-lg">Book An Appointment</a>
+    <a href="{% url 'counselling:make_request' %}" class="btn btn-success btn-lg">Book An Appointment</a>
   </div>
 
 </div>
@@ -204,11 +214,43 @@
 </div>
 
 <div class="container-fluid sec_3">
-  <div class="container">
-
-  </div>
+    <div class="sec_content align-items-center justify-content-center d-flex flex-column">
+      <div class="image">
+        <img style="height: 100%; width: 100px;" src="{% static 'images/school_logo.png' %}" alt="">
+      </div>
+      <h1 class="mt-2">
+        KNUST COUNSELLING CENTER
+      </h1>
+    </div>
 </div>
 
 
+
+<div class="container-fluid sec_4">
+  <div class="container">
+    <br>
+    <div class="col-12 px-1">
+
+        <div class="row d-flex align-items-center py-5 justify-content-center h-min-100vhs">
+            <div class="col-md-6">
+
+                <!-- Form -->
+                <form class=" shadow p-5 white-bg " method="POST" style="color: #757575;" enctype="multipart/form-data">
+                    <h2 class="text-center text-bolder">Log In from here</h2>
+                    <br>
+                    <!-- Sign in button -->
+                    <a href="{% url 'account_login' %}" type="button submit" class="btn peach-gradient btn-success btn-block" value="Log In" class=""> 
+                         Log In</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<br>
+<br>
 <br>
 {% endblock content %}

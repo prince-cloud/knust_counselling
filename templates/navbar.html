@@ -26,9 +26,8 @@
         </div>
         <li><a href="/"> Home</a></li>
         <li><a href="#"> About</a></li>
-        <li><a href="#"> Services</a></li>
         {% if request.user.is_authenticated and request.user.student %}
-        <li><a href="" class="btn btn-sm btn-success">Book Appoint.</a></li>
+        <!-- <li><a href="" class="btn btn-sm btn-success">Book Appoint.</a></li> -->
         {% endif %}
         {% if not request.user.is_authenticated %}
         <li><a href="{% url 'account_login' %}">Login</a></li>
@@ -52,10 +51,20 @@
       <div class="user_profile">
         <div class="dropdown">
           <span type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false">
-            <img src="{% static 'images/logo.png' %}" alt="">
+            {% if request.user.profile_picture %}
+            <img src="{{ request.user.profile_picture.url }}" alt="">
+            {% else %}
+            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+            {% endif %}
           </span>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <li><a class="dropdown-item" href="#">My Profile</a></li>
+            {% if request.user.is_student %}
+            <li>
+              <a class="dropdown-item" href="{% url 'counselling:edit_profile' request.user.pk %}">
+                My Profile
+              </a>
+            </li>
+            {% endif %}
             <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
           </ul>
         </div>

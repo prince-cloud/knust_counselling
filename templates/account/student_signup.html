@@ -14,19 +14,22 @@
 
                 <!-- Form -->
                 <form class=" shadow p-5 white-bg " method="POST" style="color: #757575;" enctype="multipart/form-data">
-                    <h2 class="text-center text-bolder">Log In</h2>
+                    <h2 class="text-center text-bolder">Student Sign Up</h2>
                     <br>
                     
                     {% csrf_token %}
-                    {{ form | crispy }}
+                    
+                    {{ student_form | crispy }}
+
+                    {{ user_form | crispy }}
+
 
                     <!-- Sign in button -->
                     <button type="button submit" class="btn peach-gradient btn-success btn-block" value="Log In" class=""> 
-                        <i class="fas fa-fingerprint"></i> Log In</button>
+                      <i class="fas fa-users"></i> Sign Up</button>
                     </p>
                     <div class="d-flex flex-row justify-content-between">
-                        <a href="{% url 'account_reset_password' %}">Forgot Password?</a>
-                        <a href="{% url 'counselling:student_signup' %}">Sign Up</a>
+                        <a href="{% url 'account_login' %}">Log In</a>
                     </div>
                 </form>
             </div>
